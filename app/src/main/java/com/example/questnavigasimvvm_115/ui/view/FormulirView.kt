@@ -1,10 +1,13 @@
-package com.example.questnavigasimvvm_115.ui.view
+package com.example.testpam3
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -15,9 +18,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
-//@Preview(showBackground = true)
+
 @Composable
 fun FormulirView(modifier: Modifier = Modifier,
                  listJK: List<String>,
@@ -57,3 +61,78 @@ fun FormulirView(modifier: Modifier = Modifier,
                 }
             }
         }
+        TextField(
+            value = email,
+            onValueChange = { email = it },
+            label = {
+                Text(text = "email")
+            },
+            placeholder = {
+                Text(text = "isi email anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        )
+        TextField(
+            value = alamat,
+            onValueChange = { alamat = it },
+            label = {
+                Text(text = "alamat")
+            },
+            placeholder = {
+                Text(text = "isi alamat anda")
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+        TextField(
+            value = notelepon,
+            onValueChange = { notelepon = it },
+            label = {
+                Text(text = "notelepon")
+            },
+            placeholder = {
+                Text(text = "isi notelepon anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+        Button(onClick = {
+            onSubmitCliked(listData)
+        },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp)
+
+        ) {
+            Text(text = "Simpan")
+        }
+
+    }
+}
+
+@Composable
+fun TampilData(
+    parameterName: String, argu : String
+) {
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = parameterName,
+                modifier = Modifier.weight(0.8f)
+            )
+            Text(
+                text = ":",
+                modifier = Modifier.weight(0.2f)
+            )
+            Text(
+                text = argu,
+                modifier = Modifier.weight(2f)
+            )
+        }
+    }
+}
