@@ -8,9 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.myapplication.model.JenisKelamin
 import com.example.myapplication.ui.view.TampilDataView
 import com.example.questnavigasimvvm_115.SiswaViewModel.SiswaViewModel
-import com.example.questnavigasimvvm_115.model.JenisKelamin
 import com.example.testpam3.FormulirView
 
 enum class Halaman {
